@@ -45,8 +45,9 @@ void FloodingRouter::sniffReceived(const meshtastic_MeshPacket *p, const meshtas
         if (p->id != 0) {
             if (config.device.role != meshtastic_Config_DeviceConfig_Role_CLIENT_MUTE) {
                 meshtastic_MeshPacket *tosend = packetPool.allocCopy(*p); // keep a copy because we will be sending it
-
-                tosend->hop_limit--; // bump down the hop count
+// Commented out because new role value breaks iOS/Android clients, so this is just disabled for this firmware build
+//                if(config.device.role != meshtastic_Config_DeviceConfig_Role_NO_HOP_LIMIT)
+//                    tosend->hop_limit--; // bump down the hop count
 
                 LOG_INFO("Rebroadcasting received floodmsg to neighbors\n");
                 // Note: we are careful to resend using the original senders node id

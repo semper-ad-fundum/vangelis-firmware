@@ -58,7 +58,8 @@ typedef enum _meshtastic_Config_DeviceConfig_Role {
  Technical Details: Turns off many of the routine broadcasts to favor ATAK CoT packet stream
     and automatic TAK PLI (position location information) broadcasts.
     Uses position module configuration to determine TAK PLI broadcast interval. */
-    meshtastic_Config_DeviceConfig_Role_TAK_TRACKER = 10
+    meshtastic_Config_DeviceConfig_Role_TAK_TRACKER = 10,
+    meshtastic_Config_DeviceConfig_Role_NO_HOP_LIMIT = 11
 } meshtastic_Config_DeviceConfig_Role;
 
 /* Defines the device's behavior for how messages are rebroadcast */
@@ -538,8 +539,8 @@ extern "C" {
 
 /* Helper constants for enums */
 #define _meshtastic_Config_DeviceConfig_Role_MIN meshtastic_Config_DeviceConfig_Role_CLIENT
-#define _meshtastic_Config_DeviceConfig_Role_MAX meshtastic_Config_DeviceConfig_Role_TAK_TRACKER
-#define _meshtastic_Config_DeviceConfig_Role_ARRAYSIZE ((meshtastic_Config_DeviceConfig_Role)(meshtastic_Config_DeviceConfig_Role_TAK_TRACKER+1))
+#define _meshtastic_Config_DeviceConfig_Role_MAX meshtastic_Config_DeviceConfig_Role_NO_HOP_LIMIT
+#define _meshtastic_Config_DeviceConfig_Role_ARRAYSIZE ((meshtastic_Config_DeviceConfig_Role)(meshtastic_Config_DeviceConfig_Role_NO_HOP_LIMIT+1))
 
 #define _meshtastic_Config_DeviceConfig_RebroadcastMode_MIN meshtastic_Config_DeviceConfig_RebroadcastMode_ALL
 #define _meshtastic_Config_DeviceConfig_RebroadcastMode_MAX meshtastic_Config_DeviceConfig_RebroadcastMode_KNOWN_ONLY
